@@ -19,7 +19,7 @@ app.layout = html.Div([
 
 @app.callback(Output('latest-data', 'children'), Input('interval-component', 'n_intervals'))
 def update_latest_data(_):
-    data = pd.read_csv('/home/ec2-user/my_dashboard_project/gold.csv')
+    data = pd.read_csv('/home/ec2-user/dashboard_project/gold.csv')
     latest = data.tail(1)
     latest_timestamp = latest['timestamp'].values[0]
     latest_price = latest['price'].values[0]
@@ -36,7 +36,7 @@ def update_latest_data(_):
 
 @app.callback(Output('historical-plot', 'figure'), Input('interval-component', 'n_intervals'))
 def update_historical_plot(_):
-    data = pd.read_csv('/home/ec2-user/my_dashboard_project/gold.csv')
+    data = pd.read_csv('/home/ec2-user/dashboard_project/gold.csv')
     return go.Figure(
         data=[go.Scatter(x=data['timestamp'], y=data['price'], mode='lines+markers')],
         layout=go.Layout(title='Historical Price Plot', xaxis=dict(title='Timestamp'), yaxis=dict(title='Price'))
