@@ -4,8 +4,11 @@ A simple pipeline that scrapes the live gold price into a CSV file and displays 
 
 ## Project Structure
 dashboard_project/
+
 ├─ dash_app.py        # Dash web app (KPIs + historical line chart)
+
 ├─ scraper.sh         # Web scraper (appends timestamp + price)
+
 └─ gold.csv           # Stored data (timestamp,price)
 
 ## Features
